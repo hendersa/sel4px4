@@ -20,6 +20,19 @@ CFILES   := $(patsubst $(SOURCE_DIR)/%,%,$(wildcard $(SOURCE_DIR)/src/*.c))
 CFILES   += $(patsubst $(SOURCE_DIR)/%,%,$(wildcard $(SOURCE_DIR)/src/plat/${PLAT}/*.c))
 CFILES   += $(patsubst $(SOURCE_DIR)/%,%,$(wildcard $(SOURCE_DIR)/src/arch/${ARCH}/*.c))
 
+# AWH - uORB
+UORB_PATH := src/modules/uORB
+UORB_FILES += $(UORB_PATH)/uORBDevices_posix.cpp
+UORB_FILES += $(UORB_PATH)/uORBManager_posix.cpp
+UORB_FILES += $(UORB_PATH)/uORBTest_UnitTest.cpp
+UORB_FILES += $(UORB_PATH)/objects_common.cpp
+UORB_FILES += $(UORB_PATH)/Publication.cpp
+UORB_FILES += $(UORB_PATH)/Subscription.cpp
+UORB_FILES += $(UORB_PATH)/uORBUtils.cpp
+UORB_FILES += $(UORB_PATH)/uORB.cpp
+UORB_FILES += $(UORB_PATH)/uORBMain.cpp
+#CXXFILES += $(UORB_FILES)
+
 # CPIO archive
 OFILES := archive.o
 
@@ -28,12 +41,12 @@ ASMFILES += $(patsubst $(SOURCE_DIR)/%,%,$(wildcard $(SOURCE_DIR)/src/plat/${PLA
 
 # Libraries required to build the target
 LIBS = c sel4 cpio elf sel4muslcsys sel4vka sel4allocman \
-       platsupport sel4platsupport px4 sel4vspace \
+       platsupport sel4platsupport sel4test sel4vspace \
        sel4utils sel4simple utils
 ifdef CONFIG_KERNEL_STABLE
-LIBS += px4-stable
+LIBS += sel4simple-stable
 else
-LIBS += px4-default
+LIBS += sel4simple-default
 endif
 
 # extra cflag for sel4test
@@ -53,5 +66,5 @@ archive.o: ${COMPONENTS}
 	${COMMON_PATH}/files_to_obj.sh $@ _cpio_archive $^
 
 # AWH - PX4 build includes
-include makefiles/posix/firmware_posix.mk
+#include makefiles/posix/firmware_posix.mk
 

@@ -17,13 +17,13 @@ px4-y = common libsel4 libmuslc libsel4vka libcpio libelf libsel4allocman \
 
 # set up correct simple lib for our kernel
 ifdef CONFIG_KERNEL_STABLE
-px4-$(CONFIG_LIB_SEL4_SIMPLE_STABLE) += libsel4px4-stable
+px4-$(CONFIG_LIB_SEL4_SIMPLE_STABLE) += libsel4simple-stable
 else
-px4-$(CONFIG_LIB_SEL4_SIMPLE_DEFAULT) += libsel4px4-default
+px4-$(CONFIG_LIB_SEL4_SIMPLE_DEFAULT) += libsel4simple-default
 endif
 
 # add the tests app  as a component so that we can elf load it
-px4-components-y += sel4px4-tests
+#px4-components-y += sel4px4-tests
 px4-components = $(addprefix $(STAGE_BASE)/bin/, $(px4-components-y))
 
 px4: export COMPONENTS=${px4-components}
