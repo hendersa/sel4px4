@@ -13,7 +13,7 @@ apps-$(CONFIG_APP_SEL4PX4)        += px4
 # list of libraries the app needs to build
 px4-y = common libsel4 libmuslc libsel4vka libcpio libelf libsel4allocman \
         libsel4platsupport libsel4platsupport libsel4muslcsys libsel4test \
-        libsel4simple libsel4vspace libsel4utils libutils
+        libsel4simple libsel4vspace libsel4utils libutils libuclibc++
 
 # set up correct simple lib for our kernel
 ifdef CONFIG_KERNEL_STABLE
