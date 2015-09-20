@@ -81,7 +81,6 @@
 
 #include "drivers/drv_pwm_output.h"
 #include <nuttx/fs/ioctl.h>
-
 #include <fcntl.h>
 
 

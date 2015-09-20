@@ -104,7 +104,9 @@
 #include <systemlib/systemlib.h>
 #include <systemlib/param/param.h>
 #include <systemlib/perf_counter.h>
+#if 0 /* AWH */
 #include <systemlib/git_version.h>
+#endif /* AWH */
 #include <version/version.h>
 
 #include <mavlink/mavlink_log.h>
@@ -787,6 +789,7 @@ int write_formats(int fd)
 
 int write_version(int fd)
 {
+#if 0 /* AWH */
 	/* construct version message */
 	struct {
 		LOG_PACKET_HEADER;
@@ -799,6 +802,9 @@ int write_version(int fd)
 	strncpy(log_msg_VER.body.fw_git, px4_git_version, sizeof(log_msg_VER.body.fw_git));
 	strncpy(log_msg_VER.body.arch, HW_ARCH, sizeof(log_msg_VER.body.arch));
 	return write(fd, &log_msg_VER, sizeof(log_msg_VER));
+#else
+	return 0;
+#endif /* AWH */
 }
 
 int write_parameters(int fd)

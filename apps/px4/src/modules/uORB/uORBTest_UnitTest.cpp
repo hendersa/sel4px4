@@ -37,6 +37,22 @@
 #include <px4_time.h>
 #include <stdio.h>
 
+#if 1 /* AWH - Pulled from UAVCAN library */
+extern "C" {
+__extension__ typedef int __guard __attribute__((mode (__DI__)));
+
+int __cxa_guard_acquire(__guard* g)
+{
+    return !*g;
+}
+
+void __cxa_guard_release (__guard* g)
+{
+    *g = 1;
+}
+}; /* extern "C" */
+#endif /* AWH */
+
 uORBTest::UnitTest &uORBTest::UnitTest::instance()
 {
 	static uORBTest::UnitTest t;

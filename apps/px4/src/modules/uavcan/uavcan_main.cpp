@@ -36,6 +36,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <fcntl.h>
+#if 0 /* AWH */
 #include <systemlib/err.h>
 #include <systemlib/systemlib.h>
 #include <systemlib/param/param.h>
@@ -44,6 +45,7 @@
 #include <systemlib/scheduling_priorities.h>
 #include <systemlib/git_version.h>
 #include <version/version.h>
+#endif /* AWH */
 #include <arch/board/board.h>
 #include <arch/chip/chip.h>
 

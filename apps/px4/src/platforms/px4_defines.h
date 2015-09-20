@@ -246,3 +246,11 @@ __END_DECLS
 
 /* wrapper for rotation matrices stored in arrays */
 #define PX4_R(_array, _x, _y) PX4_ARRAY2D(_array, 3, _x, _y)
+
+#if 1 /* AWH - uclibc++ doesn't have this macro in std::, but libc does*/
+#include <math.h>
+#ifdef PX4_ISFINITE
+#undef PX4_ISFINITE
+#define PX4_ISFINITE(x) isfinite(x)
+#endif /* PX4_ISFINITE */
+#endif /* AWH */

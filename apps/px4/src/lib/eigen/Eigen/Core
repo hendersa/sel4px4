@@ -315,7 +315,9 @@ using std::ptrdiff_t;
 #include "src/Core/Redux.h"
 #include "src/Core/Visitor.h"
 #include "src/Core/Fuzzy.h"
+#if 0 /* AWH - Stream support isn't fully implemented in uClibC++ */
 #include "src/Core/IO.h"
+#endif /* AWH */
 #include "src/Core/Swap.h"
 #include "src/Core/CommaInitializer.h"
 #include "src/Core/Flagged.h"

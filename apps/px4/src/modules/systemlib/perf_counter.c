@@ -40,7 +40,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#if 1 /* AWH */
+#include <queue.h>
+#else
 #include <sys/queue.h>
+#endif /* AWH */
 #include <drivers/drv_hrt.h>
 #include <math.h>
 #include "perf_counter.h"

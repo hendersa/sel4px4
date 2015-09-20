@@ -36,18 +36,24 @@
  *
  * POSIX-like API for virtual character device
  */
-
 #include <px4_log.h>
 #include <px4_posix.h>
 #include <px4_time.h>
+
 #include "device.h"
 #include "vfile.h"
 
+#ifdef __cplusplus /* AWH */
+extern "C" {
+#endif /* __cplusplus */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <pthread.h>
 #include <unistd.h>
+#ifdef __cplusplus /* AWH */
+}
+#endif /* __cplusplus */
 
 using namespace device;
 

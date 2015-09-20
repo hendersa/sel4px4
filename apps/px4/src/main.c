@@ -43,6 +43,9 @@
 #include <vspace/vspace.h>
 #include "test.h"
 
+/* AWH - From the px4_simple_app example */
+extern int px4_simple_app_main(int argc, char *argv[]);
+
 typedef struct _env {
     /* An initialised vka that may be used by the test. */
     vka_t vka;
@@ -439,6 +442,8 @@ void *main_continued(void *arg UNUSED)
     /* now run the tests */
     sel4test_run_tests("sel4test", run_test);
 #endif /* AWH */
+    /* AWH - Start the example app! */
+    px4_simple_app_main(0, 0);
     return NULL;
 }
 

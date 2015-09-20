@@ -101,8 +101,10 @@ typedef enum GETOPT_ORDERING_T
 
 /* globally-defined variables */
 char *optarg = NULL;
+#if 0 /* AWH - Duplicated witin libc.a */
 int optind = 0;
 int opterr = 1;
+#endif /* AWH */
 int optopt = '?';
 
 /* functions */

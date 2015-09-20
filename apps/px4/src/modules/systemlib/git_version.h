@@ -40,9 +40,9 @@
 #pragma once
 
 #include <stdint.h>
-
+#if 0 /* AWH */
 #include "build_git_version.h"
-
+#endif /* AWH */
 __BEGIN_DECLS
 
 __EXPORT extern const char* px4_git_version;
