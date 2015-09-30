@@ -128,6 +128,11 @@ GEO_CFILES := src/lib/geo/geo.c
 #AWH - Conversion library
 CONV_CXXFILES := src/lib/conversion/rotation.cpp
 
+# AWH - ARM-specific asm
+ARM_ASMFILES := src/arm/clone.S src/arm/__set_thread_area.S 
+ARM_ASMFILES += src/arm/syscall_cp.S src/arm/tls.S 
+ARM_ASMFILES += src/arm/__unmapself.S
+
 # AWH - All of the module files that currently build
 CPPFILES += $(UORB_CXXFILES) $(DRIVER_FILES) $(POSIX_LAYER_CXXFILES)
 CPPFILES += $(MAVLINK_CXXFILES) $(SYSLIB_CXXFILES) $(CONV_CXXFILES)
@@ -148,6 +153,9 @@ OFILES := archive.o
 
 ASMFILES := $(patsubst $(SOURCE_DIR)/%,%,$(wildcard $(SOURCE_DIR)/src/arch/${ARCH}/*.S))
 ASMFILES += $(patsubst $(SOURCE_DIR)/%,%,$(wildcard $(SOURCE_DIR)/src/plat/${PLAT}/*.S))
+
+# AWH - ASM from other sources for ARM
+ASMFILES += $(ARM_ASMFILES)
 
 # Libraries required to build the target
 LIBS = c sel4 cpio elf sel4muslcsys sel4vka sel4allocman \
